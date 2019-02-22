@@ -27,9 +27,7 @@
     </div>
     <div class="row">
       <div class="col-sm-8">
-        <% @reviews.each do |review| %>
-          <%= review.inspect %>
-        <% end %>  
+          
         <br><h3>REVIEWS: </h3><br>
         <table class="table table-bordered">
           <thead>
@@ -37,14 +35,18 @@
               <th>Rating</th>
               <th>Review</th>
               <th>User</th>
+              <th>Date</th>
             </tr>  
           </thead>
           <tbody>
-            <tr>
-              <td>10</td>
-              <td>"THIS IS OK. I LIKE IT OK I GUESS"</td>
-              <td>"RANDY REVIEWINGTON"</td>
-            </tr>
+            <% @reviews_with_user.each do |review| %>
+              <tr>
+                <td><%= review[:rating] %></td>
+                <td><%= review[:description] %></td>
+                <td><%= review["user"] %></td>
+                <td><%= review[:updated_at].to_date %></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>  
