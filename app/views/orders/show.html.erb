@@ -42,6 +42,9 @@
     <% end %>
     <h3>TOTAL: $<%= (@order.total_cents / 100.00) %><br></h3>
     EMAIL: <%= @order.email %>
+    <% mail(to: 'dleard@uvic.ca', from: 'noreply@jungle.com') do |format| %>
+      <% format.text { render plain: "test email"} %>
+    <% end %>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
