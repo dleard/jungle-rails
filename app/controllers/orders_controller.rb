@@ -1,3 +1,5 @@
+require_relative '../mailers/order_mailer'
+
 class OrdersController < ApplicationController
 
   
@@ -11,6 +13,7 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
 
     if order.valid?
+      puts OrderMailer.send_email('test', 'test').deliver_now
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
