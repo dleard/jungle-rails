@@ -132,5 +132,51 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## REVIEWS
+
+puts "Re-creating Reviews..."
+
+Review.destroy_all
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: "This is a good thing, so good, it's good. Good good good.",
+  rating: 9,
+})
+
+Review.create!({
+  product_id: 1,
+  user_id: 3,
+  description: "Ok product, it's ok, just ok, ok?",
+  rating: 7,
+})
+
+Review.create!({
+  product_id: 1,
+  user_id: 2,
+  description: "Bad product, that's a bad product, bad! You made a mess on the rug, bad product!",
+  rating: 2,
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 1,
+  description: "Me likey dis product",
+  rating: 9,
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 1,
+  description: "Me still likey",
+  rating: 9,
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 3,
+  description: "Meh",
+  rating: 6,
+})
 
 puts "DONE!"
