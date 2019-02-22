@@ -132,6 +132,40 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+
+puts "Re-creating Reviews..."
+
+User.destroy_all
+User.create!({
+  first_name: 'Donny',
+  last_name: 'Dogood',
+  email: 'donny@don.com',
+  password_digest: BCrypt::Password.create('password')
+})
+
+User.create!({
+  first_name: 'Second',
+  last_name: 'Guy',
+  email: 'second@second.com',
+  password_digest: BCrypt::Password.create('password')
+})
+
+User.create!({
+  first_name: 'Thor',
+  last_name: 'Odinson',
+  email: 'god@thunder.com',
+  password_digest: BCrypt::Password.create('password')
+})
+
+User.create!({
+  first_name: 'Ultron',
+  last_name: 'Stark',
+  email: 'ultron@ultron.com',
+  password_digest: BCrypt::Password.create('password')
+})
+
+
 ## REVIEWS
 
 puts "Re-creating Reviews..."
