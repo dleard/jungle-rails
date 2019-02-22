@@ -25,6 +25,30 @@
         </dl>
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <% @reviews.each do |review| %>
+          <%= review.inspect %>
+        <% end %>  
+        <br><h3>REVIEWS: </h3><br>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Rating</th>
+              <th>Review</th>
+              <th>User</th>
+            </tr>  
+          </thead>
+          <tbody>
+            <tr>
+              <td>10</td>
+              <td>"THIS IS OK. I LIKE IT OK I GUESS"</td>
+              <td>"RANDY REVIEWINGTON"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>  
+    </div>
 
   </article>
 
