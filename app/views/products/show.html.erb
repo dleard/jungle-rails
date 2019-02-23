@@ -53,11 +53,12 @@
       <div class="col-sm-4">
         <br><br><br><br>
         <h3>Review this item: </h3>
-        <%= form_for :review do |f| %>
-          Review: <br><%= f.text_area :description %>
-          <br>Rating: <%= f.select :rating, ((0..10).map {|i| [i,i] }) %>
-          <%= f.submit %>
-        <% end %>
+              
+        <%= form_for :review, :url => product_reviews_path(@product.id) do |f| %>
+            Review: <br><%= f.text_area :description %>
+            <br>Rating: <%= f.select :rating, ((0..10).map {|i| [i,i] }) %>
+          <%= f.submit "Submit" %>
+        <% end %>  
       </div>
     </div>
     
