@@ -2,8 +2,8 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
-![Home Page](http://url/to/img.png)
-![Product Page w/ reviews](http://url/to/img.png)
+![Home Page](https://github.com/dleard/jungle-rails/blob/master/pictures/home.png)
+![Product Page w/ reviews](https://github.com/dleard/jungle-rails/blob/master/pictures/product_review.png)
 
 ## Setup
 
