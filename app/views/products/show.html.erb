@@ -45,6 +45,10 @@
                 <td><%= review[:description] %></td>
                 <td><%= review["user"] %></td>
                 <td><%= review[:updated_at].to_date %></td>
+                
+                <% if User.find(session[:user_id]).email == review["user"] %>
+                  <td><%= button_to "delete", product_review_path(:id => review[:id], :product_id => review[:product_id]), :method => :delete %></td>
+                <% end %>  
               </tr>
             <% end %>
           </tbody>
@@ -60,7 +64,7 @@
             <br>Rating: <%= f.select :rating, ((0..10).map {|i| [i,i] }) %>
             
           <%= f.submit "Submit" %>
-        <% end %>  
+        <% end %>
       </div>
     <% end %>  
     </div>

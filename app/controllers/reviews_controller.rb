@@ -1,5 +1,11 @@
 class ReviewsController < ApplicationController
   before_filter :authorize
+  
+  def destroy
+    Review.destroy(params[:id])
+    redirect_to request.referrer 
+  end
+  
   def create
     @review = Review.new(review_params)
     @review.user_id = session[:user_id]
