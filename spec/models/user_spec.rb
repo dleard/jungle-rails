@@ -91,5 +91,22 @@ describe User, type: :model do
       
       expect(@user.authenticate_with_credentials('test@test.com', 'passrd')).to eq(nil)
     end
+
+    it 'should not fail loging in a user if email contains anterior or posterior whitespace' do
+      @user = User.new(:first_name => 'test', :last_name => 'test', :email => 'test@test.com', :password => 'password', 
+      :password_confirmation => 'password')
+      @user.save
+      
+      expect(@user.authenticate_with_credentials('  test@test.com', 'password')).to eq(true)
+    end
+
+    it 'should not fail loging in a user if email is entered in caps' do
+      @user = User.new(:first_name => 'test', :last_name => 'test', :email => 'Test@test.com', :password => 'password', 
+      :password_confirmation => 'password')
+      @user.save
+      
+      expect(@user.authenticate_with_credentials('  TEST@test.com', 'password')).to eq(true)
+    end
+
   end
 end

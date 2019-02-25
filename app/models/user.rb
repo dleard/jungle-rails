@@ -12,7 +12,9 @@ class User < ActiveRecord::Base
   
   
   def authenticate_with_credentials(email, password)
-    user = User.find_by_email(email)
+
+    email = email.strip.downcase
+    user = User.where('lower(email) = ?', email).first
     # If the user exists AND the password entered is correct.
     if user && user.authenticate(password)
       true
